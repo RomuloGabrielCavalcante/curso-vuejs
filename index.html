@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{count}}
+        <button @click="count++"> Contar </button>
+        <button v-on:click="doThis"> Clicar </button>
+        <input @keyup.enter="doThis" />
+
+
+
+        <span v-if="false">eopmvmevr</span>
+        <span>{{msg}}</span>
+
+        <div v-for="item in items">
+            {{ item }}
+          </div>
+    </div>
+</body>
+</html>
+
+<script type="module"> 
+    import { createApp, ref, reactive} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+  
+    createApp({
+      setup() {
+        const message = ref('Hello Vue!')
+        const count = ref('valor')
+        const msg = ref ("<b> olá </b>")
+        count.value = "novo"
+        const items = ref(['1','2','3','4'])
+
+        const doThis = () => console.log("Clicou")
+        return {
+          count,
+          msg,
+          items,
+        doThis
+    }
+      }
+    }).mount('#app')
+  </script>
